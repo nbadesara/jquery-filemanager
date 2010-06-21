@@ -1,7 +1,7 @@
 /*
 * File Manager
 *
-* Copyright (c) 2010 Tom Kay
+* Copyright (c) 2010 Tom Kay - oridan82@gmail.com
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
