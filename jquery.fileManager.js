@@ -67,6 +67,9 @@
 					if (data.path && !mbOptions.fixedPath) DrawItem($sel,{path:'..',title:'..',type:1});
 					DrawItem($sel,{path:'',title:'',type:2});
 				}
+				if ($(data.files).length == 0) {
+				  $sel.append('<div>No files exist.</div>');
+				}
 				$(data.files).each(function () {
 					DrawItem($sel,this);
 				});
