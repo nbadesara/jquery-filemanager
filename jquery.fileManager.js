@@ -68,7 +68,7 @@
 					DrawItem($sel,{path:'',title:'',type:2});
 				}
 				if ($(data.files).length == 0) {
-				  $sel.append('<div>No files exist.</div>');
+				  $sel.append('<div style="font-size:1.3em;padding:0.5em">No files in this folder.</div>');
 				}
 				$(data.files).each(function () {
 					DrawItem($sel,this);
