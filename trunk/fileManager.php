@@ -108,7 +108,7 @@ class jqFileManager {
 	public static function ProcessUpload($rootPath) {
 		if (ob_get_level()) ob_end_clean();
 		$pMod = array_key_exists('path',$_GET) ? $_GET['path'] : '';
-		$destination = $rootPath.trim($pMod,'/');
+		$destination = realpath(rtrim($rootPath,'/').DIRECTORY_SEPARATOR.trim($pMod,'/'));
 
 		// HTTP headers for no cache etc
 		header('Content-type: text/plain; charset=UTF-8');
