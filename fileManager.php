@@ -109,6 +109,7 @@ class jqFileManager {
 	public static function ProcessUpload($rootPath) {
 		if (ob_get_level()) ob_end_clean();
 		$pMod = array_key_exists('path',$_GET) ? $_GET['path'] : '';
+		if (!file_exists($rootPath)) mkdir($rootPath);
 		$destination = realpath(rtrim($rootPath,'/').DIRECTORY_SEPARATOR.trim($pMod,'/'));
 
 		// HTTP headers for no cache etc
@@ -135,9 +136,9 @@ class jqFileManager {
 
 		// Clean the fileName for security reasons
 		$fileName = preg_replace('/[^\w\._]+/', '', $fileName);
-    if (is_dir($targetDir . DIRECTORY_SEPARATOR . $fileName)) die('{"jsonrpc" : "2.0", "error" : {"code": 102, "message": "Failed to open output stream."}, "id" : "id"}');
-    
-    
+		if (is_dir($targetDir . DIRECTORY_SEPARATOR . $fileName)) die('{"jsonrpc" : "2.0", "error" : {"code": 102, "message": "Failed to open output stream."}, "id" : "id"}');
+
+
 		// Create target dir
 		if (!file_exists($targetDir)) {
 			mkdir($targetDir);
